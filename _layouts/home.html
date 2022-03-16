@@ -21,32 +21,8 @@ layout: default
       {%- unless post.redirect_to -%}
      
       <li>
-         <div>
-            {{ post.title }}
-          </div>
-          <br />
-          <small>
-            {{ post.description }}
-          </small>
-        {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
-        <span class="post-meta">{{ post.date | date: date_format }}</span>
-        <h3>
-          <a class="post-link" href="{{ post.url | relative_url }}">
-            {{ post.title }}
-          </a>
-          <br />
-          <small>
-            {{ post.description }}
-          </small>
-        </h3>
-        
-        {% for tag in post.tags %}
-        <a class="tag" href="/tags/#{{ tag | slugify }}">{{ tag }}</a>
-        {% endfor %}
-        
-        <br><br>
-
-        <p>{{ post.content }}</p>
+        <h2><a href="{{ post.url }}">{{ post.title }}</a></h2>
+        {{ post.excerpt }}
       </li>
 
       {%- endunless -%}
